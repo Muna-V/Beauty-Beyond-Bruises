@@ -95,10 +95,25 @@
             box-shadow: -20px 25px 40px -10px rgba(61, 42, 67, 0.25), 0 10px 15px -5px rgba(0, 0, 0, 0.05);
         }
         .hero-backdrop {
+            isolation: isolate;
             background:
-                radial-gradient(ellipse at 18% 18%, rgba(255, 255, 255, 0.74), transparent 34%),
-                radial-gradient(ellipse at 86% 78%, rgba(197, 178, 207, 0.34), transparent 38%),
-                linear-gradient(125deg, #f3e8ef 0%, #e8d9e7 52%, #f5e9ef 100%);
+                radial-gradient(ellipse at 15% 16%, rgba(255, 255, 255, 0.52), transparent 36%),
+                radial-gradient(ellipse at 82% 72%, rgba(186, 157, 188, 0.3), transparent 42%),
+                radial-gradient(ellipse at 42% 88%, rgba(202, 180, 193, 0.2), transparent 38%),
+                linear-gradient(125deg, #efdee9 0%, #e7d4e3 52%, #f0dfe8 100%);
+        }
+        .hero-backdrop::before {
+            content: "";
+            position: absolute;
+            inset: -12px;
+            z-index: 0;
+            pointer-events: none;
+            background:
+                linear-gradient(rgba(226, 207, 226, 0.58), rgba(226, 207, 226, 0.58)),
+                url("3b.png") center bottom / cover;
+            filter: blur(7px);
+            opacity: 0.72;
+            transform: scale(1.04);
         }
         .hero-cover {
             filter: drop-shadow(0 26px 30px rgba(77, 48, 77, 0.22));
@@ -151,7 +166,7 @@
 
     <!-- Hero Section -->
     <section class="relative py-12 md:py-20 overflow-hidden border-b border-lilac-200/70 hero-backdrop">
-        <div class="max-w-7xl mx-auto px-6 sm:px-8 md:px-12">
+        <div class="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 md:px-12">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
                 
                 <!-- Left Column: Copy & Specs -->
