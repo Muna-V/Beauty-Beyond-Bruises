@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beauty Beyond Bruises — Chisom Nwanoro</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Alex+Brush&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                        script: ['"Alex Brush"', 'cursive'],
+                    },
+                    colors: {
+                        stone: {
+                            50: '#FAF9F6',
+                            100: '#F5F3EF',
+                            200: '#E8E4DC',
+                            600: '#736E65',
+                            800: '#3D3A35',
+                            900: '#262421',
+                        },
+                        lilac: {
+                            50: '#F7F4F9',
+                            100: '#EFE7F2',
+                            200: '#DDD0E3',
+                            300: '#C5B2CF',
+                            700: '#6E557A',
+                            900: '#3B2A43',
+                        },
+                        rose: {
+                            50: '#FCF7F8',
+                            100: '#F8EEF0',
+                            700: '#9E4A5B',
+                            900: '#5C2430',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Book Mockup 3D Effect */
+        .book-container {
+            perspective: 1200px;
+        }
+        .book-wrapper {
+            transform-style: preserve-3d;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .book-container:hover .book-wrapper {
+            transform: rotateY(-18deg) rotateX(4deg);
+        }
+        .book-spine {
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 28px;
+            transform: rotateY(90deg) translateZ(-14px);
+            background: linear-gradient(to right, #bca5c7, #8e7399);
+        }
+        .book-shadow {
+            box-shadow: -20px 25px 40px -10px rgba(61, 42, 67, 0.25), 0 10px 15px -5px rgba(0, 0, 0, 0.05);
+        }
+        .hero-backdrop {
+            background:
+                radial-gradient(ellipse at 18% 18%, rgba(255, 255, 255, 0.74), transparent 34%),
+                radial-gradient(ellipse at 86% 78%, rgba(197, 178, 207, 0.34), transparent 38%),
+                linear-gradient(125deg, #f3e8ef 0%, #e8d9e7 52%, #f5e9ef 100%);
+        }
+        .hero-cover {
+            filter: drop-shadow(0 26px 30px rgba(77, 48, 77, 0.22));
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .book-wrapper {
+                transition: none;
+            }
+            .book-container:hover .book-wrapper {
+                transform: none;
+            }
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FAF9F6;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #DDD0E3;
+            border-radius: 9999px;
+        }
+    </style>
+</head>
+<body class="bg-stone-50 text-slate-800 font-sans antialiased selection:bg-lilac-200 selection:text-lilac-900">
+
+    <!-- Header Navigation -->
+    <header class="sticky top-0 z-40 bg-stone-50/90 backdrop-blur-md border-b border-stone-200/60 transition-all">
+        <div class="max-w-7xl mx-auto px-6 sm:px-8 md:px-12 h-20 flex items-center justify-between">
+            <a href="#" class="flex flex-col">
+                <span class="font-serif tracking-widest text-xs uppercase text-stone-600 font-semibold">Chisom Nwanoro</span>
+                <span class="font-serif text-lg tracking-wide text-slate-900 font-medium">Beauty Beyond Bruises</span>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-10 text-xs tracking-widest uppercase text-slate-600 font-medium">
+                <a href="#about-book" class="hover:text-slate-900 transition-colors duration-150">The Book</a>
+                <a href="#themes" class="hover:text-slate-900 transition-colors duration-150">Themes</a>
+                <a href="#reflections" class="hover:text-slate-900 transition-colors duration-150">Reflections</a>
+                <a href="#author" class="hover:text-slate-900 transition-colors duration-150">About Chisom</a>
+            </nav>
+
+            <div class="flex items-center gap-4">
+                <a href="Beauty-beyond-bruises.html" download class="whitespace-nowrap truncate px-5 py-2.5 rounded-xl bg-slate-900 text-white text-xs uppercase tracking-wider font-semibold hover:bg-slate-800 transition-all duration-150 shadow-sm">
+                    Download Book
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative py-12 md:py-20 overflow-hidden border-b border-lilac-200/70 hero-backdrop">
+        <div class="max-w-7xl mx-auto px-6 sm:px-8 md:px-12">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+                
+                <!-- Left Column: Copy & Specs -->
+                <div class="lg:col-span-7 space-y-7 text-center lg:text-left">
+                    <div class="space-y-1">
+                        <div class="inline-flex flex-col items-center lg:items-start text-[0.65rem] sm:text-xs font-semibold tracking-[0.22em] uppercase text-lilac-900">
+                            <span>Hope for the Heart.</span>
+                            <span>Healing for the Soul.</span>
+                        </div>
+                        <div class="w-36 h-px bg-lilac-700/60 mx-auto lg:mx-0 my-4"></div>
+                        <h1 class="font-serif text-[3.6rem] sm:text-7xl lg:text-[5.5rem] uppercase tracking-[0.055em] leading-[0.82] text-slate-950">
+                            Beauty
+                            <span class="block font-script normal-case tracking-normal text-[4.9rem] sm:text-[6.5rem] lg:text-[7.5rem] leading-[0.9] text-slate-950">Beyond</span>
+                            Bruises
+                        </h1>
+                    </div>
+
+                    <p class="text-base sm:text-lg text-lilac-900/90 leading-relaxed font-serif max-w-xl mx-auto lg:mx-0">
+                        Finding God’s Comfort and Strength <span class="block italic">in Trying Times</span>
+                    </p>
+
+                    <!-- Feature Tags -->
+                    <div class="grid grid-cols-3 gap-4 pt-5 border-t border-b border-lilac-900/20 py-5 max-w-xl mx-auto lg:mx-0">
+                        <div>
+                            <span class="block text-[0.65rem] uppercase tracking-wider text-lilac-900/60 font-medium">Format</span>
+                            <span class="text-sm font-semibold text-slate-800 mt-1 block">Digital Edition</span>
+                        </div>
+                        <div>
+                            <span class="block text-[0.65rem] uppercase tracking-wider text-lilac-900/60 font-medium">Author</span>
+                            <span class="text-sm font-semibold text-slate-800 mt-1 block">Chisom Nwanoro</span>
+                        </div>
+                        <div>
+                            <span class="block text-[0.65rem] uppercase tracking-wider text-lilac-900/60 font-medium">Read Time</span>
+                            <span class="text-sm font-semibold text-slate-800 mt-1 block">10 Guided Readings</span>
+                        </div>
+                    </div>
+
+                    <!-- Primary Action Target Button -->
+                    <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-4 pt-1">
+                        <a href="Beauty-beyond-bruises.html" download class="whitespace-nowrap truncate px-8 py-4 rounded-full bg-lilac-900 text-white font-medium text-sm hover:bg-lilac-700 transition-colors duration-150 text-center shadow-md">
+                            Download Book
+                        </a>
+                    </div>
+
+                    <p class="text-xs text-lilac-900/60 font-medium flex items-center justify-center lg:justify-start gap-2">
+                        <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        A gentle digital companion, ready to read on any device.
+                    </p>
+                </div>
+
+                <!-- Right Column: Clean Book Cover Card -->
+                <div class="lg:col-span-5 flex justify-center items-center py-2 lg:py-0">
+                    <div class="book-container w-full max-w-[290px] sm:max-w-[340px] lg:max-w-[380px] aspect-[0.73] relative">
+                    <img src="3b.png" class="book-wrapper hero-cover w-full h-full relative rounded-sm object-cover select-none" alt="Beauty Beyond Bruises book cover by Chisom Nwanoro">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Philosophy / Value Section -->
+    <section id="about-book" class="py-16 md:py-24 border-b border-stone-200/60 bg-white">
+        <div class="max-w-7xl mx-auto px-6 sm:px-8 md:px-12">
+            <div class="max-w-3xl mx-auto text-center space-y-6">
+                <span class="text-xs uppercase tracking-widest text-slate-400 font-semibold">A Gentle Companion Through Grief</span>
+                <h2 class="text-3xl sm:text-4xl font-serif text-slate-900 leading-tight">
+                    "Your tears are not unseen, and your story does not end in grief."
+                </h2>
+                <p class="text-slate-600 leading-relaxed font-light text-base sm:text-lg">
+                    Losing someone you love changes everything in a second. <em class="font-serif text-slate-800">Beauty Beyond Bruises</em> was written out of firsthand experience with deep loss. It does not offer quick clichés or forced cheerfulness; instead, it offers quiet, gentle reminders of God’s unfailing presence when you have no strength left.
+                </p>
+            </div>
+
+            <!-- Pillars of Strength -->
+            <div id="themes" class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+                <div class="p-8 rounded-2xl bg-stone-50 border border-stone-200/70 space-y-4">
+                    <div class="w-10 h-10 rounded-xl bg-lilac-100 flex items-center justify-center text-lilac-900 font-serif font-semibold text-lg">01</div>
+                    <h3 class="text-xl font-serif text-slate-900">Permission to Grieve</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed font-light">
+                        It is okay to ask questions, to weep, and to wonder why. You do not have to pretend to be strong when your heart is broken.
+                    </p>
+                </div>
+                <div class="p-8 rounded-2xl bg-stone-50 border border-stone-200/70 space-y-4">
+                    <div class="w-10 h-10 rounded-xl bg-lilac-100 flex items-center justify-center text-lilac-900 font-serif font-semibold text-lg">02</div>
+                    <h3 class="text-xl font-serif text-slate-900">He Weeps With You</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed font-light">
+                        Discover the tenderness of a God who sits beside you in deep loss, storing every tear in His bottle and feeling your hurt down to the last detail.
+                    </p>
+                </div>
+                <div class="p-8 rounded-2xl bg-stone-50 border border-stone-200/70 space-y-4">
+                    <div class="w-10 h-10 rounded-xl bg-lilac-100 flex items-center justify-center text-lilac-900 font-serif font-semibold text-lg">03</div>
+                    <h3 class="text-xl font-serif text-slate-900">Refined & Redesigned</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed font-light">
+                        The fire of trial is not meant to destroy you. In time, you will rise out of the ashes with a restored identity and a new testimony of hope.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials / Reader Reflections Section -->
+    <section id="reflections" class="py-16 md:py-24 border-b border-stone-200/60 bg-stone-50">
+        <div class="max-w-7xl mx-auto px-6 sm:px-8 md:px-12 space-y-12">
+            <div class="text-center max-w-2xl mx-auto space-y-3">
+                <span class="text-xs uppercase tracking-widest text-slate-400 font-semibold">Reader Reflections</span>
+                <h2 class="text-3xl sm:text-4xl font-serif text-slate-900">Comfort Found in Quiet Pages</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="p-8 rounded-2xl bg-white border border-stone-200/70 space-y-6 flex flex-col justify-between">
+                    <p class="text-slate-700 italic font-serif leading-relaxed text-base">
+                        "Reading Chisom's words felt like someone was wrapping a warm blanket around my shoulders during the darkest weeks following my loss."
+                    </p>
+                    <div>
+                        <p class="text-sm font-semibold text-slate-900">Dr. Eleanor Vance</p>
+                        <p class="text-xs text-slate-500">Bereavement Support Reader</p>
+                    </div>
+                </div>
+
+                <div class="p-8 rounded-2xl bg-white border border-stone-200/70 space-y-6 flex flex-col justify-between">
+                    <p class="text-slate-700 italic font-serif leading-relaxed text-base">
+                        "I had so many unanswerable 'whys'. The reflections gave me the grace to stop pretending I was fine and just rest in God's presence."
+                    </p>
+                    <div>
+                        <p class="text-sm font-semibold text-slate-900">Miriam K.</p>
+                        <p class="text-xs text-slate-500">Reader</p>
+                    </div>
+                </div>
+
+                <div class="p-8 rounded-2xl bg-white border border-stone-200/70 space-y-6 flex flex-col justify-between">
+                    <p class="text-slate-700 italic font-serif leading-relaxed text-base">
+                        "Short, poignant readings that speak straight to the heart when long books feel too heavy to process."
+                    </p>
+                    <div>
+                        <p class="text-sm font-semibold text-slate-900">David O.</p>
+                        <p class="text-xs text-slate-500">Community Leader</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About the Author Section -->
+    <section id="author" class="py-16 md:py-24 border-b border-stone-200/60 bg-white">
+        <div class="max-w-7xl mx-auto px-6 sm:px-8 md:px-12">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Author Image Side -->
+                <div class="lg:col-span-5">
+                    <div class="relative rounded-2xl overflow-hidden border border-stone-200/70 bg-stone-50 p-3">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800" alt="Chisom Nwanoro" class="w-full h-auto rounded-xl object-cover grayscale opacity-90 hover:grayscale-0 transition-all duration-500">
+                        <div class="p-4 text-center">
+                            <h4 class="font-serif text-lg font-semibold text-slate-900">Chisom Nwanoro</h4>
+                            <p class="text-xs text-slate-500 font-medium mt-0.5">Author, Legal Operations Professional & Convener</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Author Bio Side -->
+                <div class="lg:col-span-7 space-y-6">
+                    <span class="text-xs uppercase tracking-widest text-slate-400 font-semibold">About the Author</span>
+                    <h2 class="text-3xl sm:text-4xl font-serif text-slate-900">Transforming Personal Loss into Lessons of Hope</h2>
+                    
+                    <p class="text-slate-600 leading-relaxed font-light text-base">
+                        Chisom Nwanoro beautifully weaves her faith, family, work, and passions into a life of purpose. Guided by a deep belief in God's love, she is a devoted mother of four, a Legal Operations and Case Management Professional, and an inspiring voice for wholeness.
+                    </p>
+
+                    <p class="text-slate-600 leading-relaxed font-light text-base">
+                        She is the convener of the <strong class="font-semibold text-slate-800">3P's: Pieces, Peace, and Purpose Wholeness Series</strong>, author of <em>Six Plus One Lessons From the Eye of the Storm</em>, and host of <strong class="font-semibold text-slate-800">"Let's Talk with Chisom"</strong>—a YouTube platform transforming life stories into powerful lessons of resilience.
+                    </p>
+
+                    <!-- Author Credentials / Badges -->
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-4 border-t border-stone-200/60">
+                        <div>
+                            <span class="block text-xs uppercase tracking-wider text-slate-400 font-medium">Initiative</span>
+                            <span class="text-sm font-semibold text-slate-800 mt-1 block">3P's Wholeness Series</span>
+                        </div>
+                        <div>
+                            <span class="block text-xs uppercase tracking-wider text-slate-400 font-medium">Platform</span>
+                            <span class="text-sm font-semibold text-slate-800 mt-1 block">Let's Talk with Chisom</span>
+                        </div>
+                        <div>
+                            <span class="block text-xs uppercase tracking-wider text-slate-400 font-medium">Focus</span>
+                            <span class="text-sm font-semibold text-slate-800 mt-1 block">Grief & Healing Support</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-stone-50 text-slate-600 text-xs border-t border-stone-200/60">
+        <div class="max-w-7xl mx-auto px-6 sm:px-8 md:px-12 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div class="flex flex-col">
+                <span class="font-serif font-semibold text-slate-900 text-sm">Beauty Beyond Bruises</span>
+                <span class="text-slate-400">© 2026 Chisom Nwanoro. All rights reserved.</span>
+            </div>
+            
+            <div class="flex items-center gap-6 text-slate-500 font-medium">
+                <a href="Beauty-beyond-bruises.html" download class="hover:text-slate-900 transition-colors">Download Book</a>
+                <a href="#author" class="hover:text-slate-900 transition-colors">Author Bio</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
