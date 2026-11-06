@@ -71,29 +71,6 @@
         }
     </script>
     <style>
-        /* Book Mockup 3D Effect */
-        .book-container {
-            perspective: 1200px;
-        }
-        .book-wrapper {
-            transform-style: preserve-3d;
-            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .book-container:hover .book-wrapper {
-            transform: rotateY(-18deg) rotateX(4deg);
-        }
-        .book-spine {
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 28px;
-            transform: rotateY(90deg) translateZ(-14px);
-            background: linear-gradient(to right, #bca5c7, #8e7399);
-        }
-        .book-shadow {
-            box-shadow: -20px 25px 40px -10px rgba(61, 42, 67, 0.25), 0 10px 15px -5px rgba(0, 0, 0, 0.05);
-        }
         .hero-backdrop {
             isolation: isolate;
             background:
@@ -124,10 +101,6 @@
             max-height: 90vh;
             object-fit: contain;
             filter: drop-shadow(0 24px 32px rgba(59, 42, 67, 0.28));
-            transition: transform 600ms cubic-bezier(0.16, 1, 0.3, 1), filter 250ms ease;
-        }
-        .journey-book:hover .hero-cover {
-            filter: drop-shadow(0 30px 38px rgba(59, 42, 67, 0.34));
         }
         @keyframes hero-rise-in {
             from {
@@ -147,51 +120,6 @@
         .hero-copy > :nth-child(3) { animation-delay: 340ms; }
         .hero-copy > :nth-child(4) { animation-delay: 460ms; }
         .hero-copy > :nth-child(5) { animation-delay: 560ms; }
-        .hero-art {
-            animation: hero-rise-in 900ms cubic-bezier(0.2, 0.7, 0.2, 1) 240ms both;
-        }
-        .book-journey {
-            display: grid;
-            grid-template-columns: minmax(0, 1.35fr) minmax(320px, 0.8fr);
-        }
-        .journey-hero {
-            grid-column: 1 / -1;
-            grid-row: 1;
-        }
-        .journey-guide {
-            grid-column: 1;
-            grid-row: 2;
-        }
-        .journey-book {
-            grid-column: 2;
-            grid-row: 1 / 3;
-            position: sticky;
-            top: 12vh;
-            align-self: start;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 3rem 2rem;
-            z-index: 1;
-        }
-        @media (max-width: 1023px) {
-            .book-journey {
-                display: flex;
-                flex-direction: column;
-            }
-            .journey-hero {
-                order: 1;
-            }
-            .journey-book {
-                order: 2;
-                position: relative;
-                top: auto;
-                padding: 2rem 1.5rem;
-            }
-            .journey-guide {
-                order: 3;
-            }
-        }
         .site-header {
             transition: transform 250ms ease;
             will-change: transform;
@@ -224,9 +152,6 @@
         }
         @media (prefers-reduced-motion: reduce) {
             .hero-copy > *,
-            .hero-art {
-                animation: none;
-            }
             .scroll-reveal {
                 opacity: 1;
                 transform: none;
@@ -236,15 +161,6 @@
             #reflections .grid > div,
             #author .rounded-2xl {
                 transition: none;
-            }
-            .book-wrapper {
-                transition: none;
-            }
-            .hero-cover {
-                transition: none;
-            }
-            .book-container:hover .book-wrapper {
-                transform: none;
             }
             .site-header {
                 transition: none;
@@ -274,22 +190,21 @@
 
             <nav class="hidden md:flex items-center gap-10 text-xs tracking-widest uppercase text-slate-700 font-medium">
                 <a href="#about-book" class="hover:text-slate-900 transition-colors duration-150">The Book</a>
-                <a href="#how-to-use" class="hover:text-slate-900 transition-colors duration-150">How to Use</a>
-                <a href="#themes" class="hover:text-slate-900 transition-colors duration-150">Themes</a>
+                <a href="download.html" class="hover:text-slate-900 transition-colors duration-150">How to Download</a>
+                <a href="#about-book" class="hover:text-slate-900 transition-colors duration-150">About the Book</a>
                 <a href="#author" class="hover:text-slate-900 transition-colors duration-150">About Chisom</a>
             </nav>
 
             <div class="flex items-center gap-4">
-                <a href="Beauty-beyond-bruises.html" download class="whitespace-nowrap truncate px-5 py-2.5 rounded-xl bg-slate-900 text-white text-xs uppercase tracking-wider font-semibold hover:bg-slate-800 transition-all duration-150 shadow-sm">
+                <a href="download.html" class="whitespace-nowrap truncate px-5 py-2.5 rounded-xl bg-slate-900 text-white text-xs uppercase tracking-wider font-semibold hover:bg-slate-800 transition-all duration-150 shadow-sm">
                     Download Book
                 </a>
             </div>
         </div>
     </header>
 
-    <div class="book-journey">
     <!-- Hero Section -->
-    <section class="journey-hero relative py-12 md:py-20 overflow-hidden border-b border-lilac-200/70 hero-backdrop">
+    <section class="relative py-12 md:py-20 overflow-hidden border-b border-lilac-200/70 hero-backdrop">
         <div class="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 md:px-12">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
                 
@@ -330,7 +245,7 @@
 
                     <!-- Primary Action Target Button -->
                     <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-4 pt-1">
-                        <a href="Beauty-beyond-bruises.html" download class="whitespace-nowrap truncate px-8 py-4 rounded-full bg-lilac-900 text-white font-medium text-sm hover:bg-lilac-700 transition-colors duration-150 text-center shadow-md">
+                        <a href="download.html" class="whitespace-nowrap truncate px-8 py-4 rounded-full bg-lilac-900 text-white font-medium text-sm hover:bg-lilac-700 transition-colors duration-150 text-center shadow-md">
                             Download Book
                         </a>
                     </div>
@@ -341,95 +256,41 @@
                     </p>
                 </div>
 
-                <div class="hidden lg:block lg:col-span-5" aria-hidden="true"></div>
+                <div class="lg:col-span-5 flex justify-center items-center pt-8 lg:pt-0" aria-label="Beauty Beyond Bruises book cover">
+                    <img src="3b.png" class="hero-cover select-none" alt="Beauty Beyond Bruises book cover by Chisom Nwanoro">
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- How to Use the Downloaded Book -->
-    <section id="how-to-use" class="journey-guide scroll-reveal py-16 md:py-24 border-b border-lilac-200/70 bg-lilac-50">
-        <div class="max-w-7xl mx-auto px-6 sm:px-8 md:px-12">
-            <div class="max-w-3xl mx-auto text-center space-y-4 mb-12">
-                <span class="text-xs uppercase tracking-widest text-lilac-900 font-semibold">Your Reading Guide</span>
-                <h2 class="text-3xl sm:text-4xl font-serif text-slate-900">How to Use Your Download</h2>
-                <p class="text-slate-700 leading-relaxed text-base sm:text-lg">
-                    Your book opens as an interactive digital reader. Follow these simple steps to get started.
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 gap-6 max-w-3xl mx-auto">
-                <div class="p-7 rounded-2xl bg-white border border-stone-200/70 space-y-4">
-                    <div class="w-10 h-10 rounded-xl bg-lilac-100 flex items-center justify-center text-lilac-900 font-serif font-semibold text-lg">01</div>
-                    <h3 class="text-xl font-serif text-slate-900">Download your book</h3>
-                    <p class="text-sm text-slate-700 leading-relaxed">
-                        Select <strong class="font-semibold text-slate-800">Download Book</strong>. The book file will be saved to your device, usually in its Downloads folder.
-                    </p>
-                </div>
-                <div class="p-7 rounded-2xl bg-white border border-stone-200/70 space-y-4">
-                    <div class="w-10 h-10 rounded-xl bg-lilac-100 flex items-center justify-center text-lilac-900 font-serif font-semibold text-lg">02</div>
-                    <h3 class="text-xl font-serif text-slate-900">Open it in a browser</h3>
-                    <p class="text-sm text-slate-700 leading-relaxed">
-                        Find <strong class="font-semibold text-slate-800">Beauty-beyond-bruises.html</strong> in Downloads or Files and open it with a modern browser. An internet connection is needed to load the interactive reader.
-                    </p>
-                </div>
-                <div class="p-7 rounded-2xl bg-white border border-stone-200/70 space-y-4">
-                    <div class="w-10 h-10 rounded-xl bg-lilac-100 flex items-center justify-center text-lilac-900 font-serif font-semibold text-lg">03</div>
-                    <h3 class="text-xl font-serif text-slate-900">Read at your pace</h3>
-                    <p class="text-sm text-slate-700 leading-relaxed">
-                        Swipe or use the page arrows to turn pages. The bottom toolbar includes page navigation, the contents and bookmarks, narration, and background music.
-                    </p>
-                </div>
-            </div>
-
-            <p class="mt-8 text-center text-sm text-slate-700 max-w-3xl mx-auto">
-                No separate app installation is needed—just download the file and open it in your browser.
-            </p>
-        </div>
-    </section>
-    <aside class="journey-book hero-art"  aria-label="Beauty Beyond Bruises book cover">
-        <div class="book-container">
-            <img src="3b.png" class="book-wrapper hero-cover select-none" alt="Beauty Beyond Bruises book cover by Chisom Nwanoro">
-        </div>
-    </aside>
-    </div>
-
-    <!-- Core Philosophy / Value Section -->
+    <!-- About the Book Section -->
     <section id="about-book" class="scroll-reveal py-16 md:py-24 border-b border-stone-200/60 bg-white">
         <div class="max-w-7xl mx-auto px-6 sm:px-8 md:px-12">
-            <div class="max-w-3xl mx-auto text-center space-y-6">
-                <span class="text-xs uppercase tracking-widest text-slate-600 font-semibold">A Gentle Companion Through Grief</span>
-                <h2 class="text-3xl sm:text-4xl font-serif text-slate-900 leading-tight">
-                    "Your tears are not unseen, and your story does not end in grief."
-                </h2>
-                <p class="text-slate-700 leading-relaxed text-base sm:text-lg">
-                    Losing someone you love changes everything in a second. <em class="font-serif text-slate-800">Beauty Beyond Bruises</em> was written out of firsthand experience with deep loss. It does not offer quick clichés or forced cheerfulness; instead, it offers quiet, gentle reminders of God’s unfailing presence when you have no strength left.
-                </p>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start">
+                <div class="space-y-4">
+                    <h2 class="text-4xl sm:text-5xl lg:text-6xl font-serif text-slate-900 leading-tight">
+                        About the Book
+                    </h2>
+                    <p class="text-xl sm:text-2xl font-serif text-slate-700">
+                        Comfort and strength through grief
+                    </p>
+                </div>
+                <div class="text-left space-y-4 text-slate-700 leading-relaxed text-base sm:text-lg">
+                    <p>
+                        Losing someone you love hurts in ways words can hardly explain. Some days, the pain will feel heavier than others, and that's okay. Cry if you need to, and talk to God—even when you don't understand why. Give yourself time. You don't have to rush your healing or pretend to be okay; take it one day at a time.
+                    </p>
+                    <p class="font-medium text-slate-800">
+                        <em class="font-serif">Beauty Beyond Bruises</em> is an interactive digital flipbook featuring short, heartfelt readings for your hardest days. It is a gentle reminder of God's unfailing love, His presence through life's challenges, and the hope that can be found even in seasons of pain.
+                    </p>
+                    <p>
+                        Your tears are not unseen, and your story does not end in grief. Healing is possible, hope can be restored, and brighter days are ahead.
+                    </p>
+                    <p class="italic font-light text-slate-600">
+                        Take it one day at a time. You are loved, you are not alone, and light will find its way in again.
+                    </p>
+                </div>
             </div>
 
-            <!-- Pillars of Strength -->
-            <div id="themes" class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
-                <div class="p-8 rounded-2xl bg-stone-50 border border-stone-200/70 space-y-4">
-                    <div class="w-10 h-10 rounded-xl bg-lilac-100 flex items-center justify-center text-lilac-900 font-serif font-semibold text-lg">01</div>
-                    <h3 class="text-xl font-serif text-slate-900">Permission to Grieve</h3>
-                    <p class="text-sm text-slate-700 leading-relaxed">
-                        It is okay to ask questions, to weep, and to wonder why. You do not have to pretend to be strong when your heart is broken.
-                    </p>
-                </div>
-                <div class="p-8 rounded-2xl bg-stone-50 border border-stone-200/70 space-y-4">
-                    <div class="w-10 h-10 rounded-xl bg-lilac-100 flex items-center justify-center text-lilac-900 font-serif font-semibold text-lg">02</div>
-                    <h3 class="text-xl font-serif text-slate-900">He Weeps With You</h3>
-                    <p class="text-sm text-slate-700 leading-relaxed">
-                        Discover the tenderness of a God who sits beside you in deep loss, storing every tear in His bottle and feeling your hurt down to the last detail.
-                    </p>
-                </div>
-                <div class="p-8 rounded-2xl bg-stone-50 border border-stone-200/70 space-y-4">
-                    <div class="w-10 h-10 rounded-xl bg-lilac-100 flex items-center justify-center text-lilac-900 font-serif font-semibold text-lg">03</div>
-                    <h3 class="text-xl font-serif text-slate-900">Refined & Redesigned</h3>
-                    <p class="text-sm text-slate-700 leading-relaxed">
-                        The fire of trial is not meant to destroy you. In time, you will rise out of the ashes with a restored identity and a new testimony of hope.
-                    </p>
-                </div>
-            </div>
         </div>
     </section>
 
@@ -464,15 +325,7 @@
         She is the founder of the <strong class="font-semibold text-slate-800">3P's: Pieces, Peace, and Purpose Wholeness Series</strong>, author of <em>Six Plus One Lessons From the Eye of the Storm</em>, and host of <strong class="font-semibold text-slate-800">"Let's Talk with Chisom"</strong>—a YouTube platform dedicated to transforming life stories into powerful lessons of resilience.
     </p>
 
-    <!-- Author Credentials / Badges -->
-    <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-4 border-t border-stone-200/60">
-        <div>
-            <span class="block text-xs uppercase tracking-wider text-slate-600 font-medium">Initiative</span>
-            <span class="text-sm font-semibold text-slate-800 mt-1 block">3P's Wholeness Series</span>
-        </div>
 
-
-    </div>
 </div>
 
             </div>
@@ -488,7 +341,7 @@
             </div>
             
             <div class="flex items-center gap-6 text-slate-700 font-medium">
-                <a href="Beauty-beyond-bruises.html" download class="hover:text-slate-900 transition-colors">Download Book</a>
+                <a href="download.html" class="hover:text-slate-900 transition-colors">Download Book</a>
                 <a href="#author" class="hover:text-slate-900 transition-colors">Author Bio</a>
             </div>
 
