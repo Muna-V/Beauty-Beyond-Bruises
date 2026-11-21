@@ -250,6 +250,10 @@
                         </a>
                     </div>
 
+                    <p id="download-stat" class="inline-flex items-center gap-2 rounded-full border border-lilac-700/20 bg-white/50 px-4 py-2 text-sm text-lilac-900" role="status" aria-live="polite">
+                        <span id="download-count">Loading download count…</span>
+                    </p>
+
                     <p class="text-xs text-lilac-900/80 font-medium flex items-center justify-center lg:justify-start gap-2">
                         <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                         A gentle digital companion, ready to read on any device.
@@ -386,6 +390,27 @@
 
             previousScrollY = currentScrollY;
         }, { passive: true });
+    </script>
+    <script>
+        const downloadCount = document.getElementById("download-count");
+
+        fetch("/api/downloads")
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`Download counter request failed (${response.status})`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (!Number.isSafeInteger(data.count) || data.count < 0) {
+                    throw new Error("Download counter returned an invalid total");
+                }
+                downloadCount.textContent = `${new Intl.NumberFormat().format(data.count)} book download${data.count === 1 ? "" : "s"}`;
+            })
+            .catch(error => {
+                console.error("Unable to load the book download count:", error);
+                downloadCount.textContent = "Download count unavailable";
+            });
     </script>
 </body>
 </html>
